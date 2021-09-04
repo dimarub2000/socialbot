@@ -22,3 +22,4 @@ class Transaction(db.Model):
     chat_id = db.Column(db.String(80), nullable=False)
     username = db.Column(db.String(80), nullable=False)
     credit = db.Column(db.Integer, default=200, nullable=False)
+    state = db.Column(db.Integer, default=0, nullable=False)
