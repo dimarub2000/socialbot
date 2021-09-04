@@ -1,4 +1,5 @@
 import os
+import random
 import time
 import telebot
 import threading
@@ -124,6 +125,19 @@ def pochemy(message):
         "username": username,
         "credit": credit,
     }).start()
+
+
+@bot.message_handler(commands=['ebaklya'])
+def ebaklya_handler(message):
+    _, chat_id = get_params_from_message(message)
+    symbols = '🤣😅😎🤩😘😏😜🤤🙃😤😱🤪😷🤭🤓👹' \
+                '👵👨🍳👨❤️👨💪🤙👅👀🙈🐷🐔🐣🐝🐢' \
+                '🌝🌚🌈🍑🍆🗿🚑🎊🎉🎁❤️🧡💛💚💙💜💖🏳️🌈'
+
+    for _ in range(random.randint(30, 200)):
+        rand_size = random.randint(20, 100)
+        rand_msg = ''.join(random.choice(symbols) for _ in range(rand_size))
+        bot.send_message(chat_id, rand_msg)
 
 
 if __name__ == "__main__":
