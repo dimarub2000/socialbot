@@ -168,12 +168,15 @@ def ebaklya_handler(message):
         rand_msg = ''.join(random.choice(symbols) for _ in range(rand_size))
         bot.send_message(chat_id, rand_msg)
 
+
 @bot.message_handler(commands=['pasta'])
 def pasta_handler(message):
     _, chat_id = get_params_from_message(message)
-    paste = 'У меня нет проблем🥰кроме моей башки🌸1000-7🤪я умер...😳прости💔этот еbаный дождь🌧нагоняет тоски😪1000-7💀я умер, прости💔'
+    paste = 'У меня нет проблем🥰кроме моей башки🌸1000-7🤪я умер...😳прости💔этот еbаный дождь🌧нагоняет ' \
+            'тоски😪1000-7💀я умер, прости💔 '
     bot.send_message(chat_id, paste)
-    
+
+
 if __name__ == "__main__":
     db.create_all()
     bot.polling(none_stop=True, interval=0)
