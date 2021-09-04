@@ -7,7 +7,7 @@ import threading
 from sqlalchemy import and_
 from database import db
 from database import User, Transaction
-from pasti import pasti
+from pastes import pastes
 
 bot = telebot.AsyncTeleBot(os.environ['BOT_TOKEN'])
 bot.threaded = True
@@ -173,7 +173,7 @@ def ebaklya_handler(message):
 @bot.message_handler(commands=['pasta'])
 def pasta_handler(message):
     _, chat_id = get_params_from_message(message)
-    paste = pasti[random.randint(0, len(pasti) - 1)]
+    paste = pastes[random.randint(0, len(pastes) - 1)]
     bot.send_message(chat_id, paste)
 
 
