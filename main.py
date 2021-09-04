@@ -86,8 +86,8 @@ def sub_credit(message):
 def top_handler(message):
     _, chat_id = get_params_from_message(message)
     users = sorted(User.query.filter_by(chat_id=chat_id).all(), key=lambda user: user.credit, reverse=True)
-    users_top = ["{:<15} {}".format(user.username, user.credit) for user in users]
-    bot.send_message(chat_id, "\n".join(users_top))
+    users_top = ["{:<12} {}".format(user.username, user.credit) for user in users]
+    bot.send_message(chat_id, "```\n" + "\n".join(users_top) + "\n```", parse_mode="MarkdownV2")
 
 
 @bot.message_handler(commands=['register'])
