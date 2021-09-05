@@ -11,13 +11,13 @@ class Paste(object):
             return cls(reader.read())
 
     def __repr__(self):
-        return self.paste
+        return self.paste.__repr__()
 
     def __str__(self):
-        return self.paste
+        return self.paste.__str__()
 
     def __unicode__(self):
-        return self.paste
+        return self.paste.__unicode__()
 
 
 class EbaklyaPaste(Paste):
