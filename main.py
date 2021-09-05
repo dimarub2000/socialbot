@@ -157,19 +157,6 @@ def pochemy_handler(message):
     }).start()
 
 
-@bot.message_handler(commands=['ebaklya'])
-def ebaklya_handler(message):
-    _, chat_id = get_params_from_message(message)
-    symbols = '🤣😅😎🤩😘😏😜🤤🙃😤😱🤪😷🤭🤓👹' \
-              '👵👨🍳👨❤️👨💪🤙👅👀🙈🐷🐔🐣🐝🐢' \
-              '🌝🌚🌈🍑🍆🗿🚑🎊🎉🎁❤️🧡💛💚💙💜💖🏳️🌈'
-
-    for _ in range(random.randint(4, 6)):
-        rand_size = random.randint(20, 100)
-        rand_msg = ''.join(random.choice(symbols) for _ in range(rand_size))
-        bot.send_message(chat_id, rand_msg)
-
-
 @bot.message_handler(commands=['pasta'])
 def pasta_handler(message):
     _, chat_id = get_params_from_message(message)
