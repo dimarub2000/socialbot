@@ -1,8 +1,8 @@
 import os
 import random
 import time
-import telebot
 import threading
+import telebot
 
 from sqlalchemy import and_
 from database import db
@@ -88,7 +88,7 @@ def top_handler(message):
     _, chat_id = get_params_from_message(message)
     users = sorted(User.query.filter_by(chat_id=chat_id).all(), key=lambda user: user.credit, reverse=True)
     if not users:
-        bot.send_message(chat_id, "Club is empty =(. Join it with /register")
+        bot.reply_to(message, "Club is empty =(. Join it with /register")
         return
     indent = len(max(users, key=lambda user: len(user.username)).username) + 1
     users_top = [("{:<%d} {}" % indent).format(user.username, user.credit) for user in users]

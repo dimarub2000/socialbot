@@ -1,0 +1,5 @@
+pyTelegramBotAPI
+Flask
+Flask-SQLAlchemy
+pylint_flask
+pylint_flask_sqlalchemy
