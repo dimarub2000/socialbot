@@ -1,8 +1,8 @@
 import os
 import random
 import time
-import telebot
 import threading
+import telebot
 
 from sqlalchemy import and_
 from database import db
