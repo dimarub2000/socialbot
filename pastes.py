@@ -1,13 +1,13 @@
 import random
 
 
-class Paste(object):
+class Paste:
     def __init__(self, paste=None):
         self.paste = paste
 
     @classmethod
     def load_from_file(cls, file_path):
-        with open(file_path, 'r') as reader:
+        with open(file_path, 'r', encoding='utf-8') as reader:
             return cls(reader.read())
 
     def __repr__(self):
