@@ -22,7 +22,7 @@ class Paste(object):
 
 class EbaklyaPaste(Paste):
     def __init__(self, symbols):
-        super().__init__("")
+        super().__init__(symbols)
         self.symbols = symbols
 
     def generate_paste(self):
