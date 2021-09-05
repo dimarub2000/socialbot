@@ -163,9 +163,9 @@ def pochemy_handler(message):
 
 @bot.message_handler(commands=['pasta'])
 def pasta_handler(message):
-    _, chat_id = get_params_from_message(message)
-    paste = pastes[random.randint(0, len(pastes) - 1)]
-    bot.send_message(chat_id, paste)
+    username, chat_id = get_params_from_message(message)
+    paste = random.choices(pastes, weights=list(map(lambda x: x.weight, pastes)), k=1)[0]
+    bot.send_message(chat_id, paste.format(username=username))
 
 
 if __name__ == "__main__":
