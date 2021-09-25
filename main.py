@@ -9,7 +9,7 @@ from database import db
 from database import User, Transaction
 from pastes import pastes
 
-bot = telebot.AsyncTeleBot(os.environ['BOT_TOKEN'])
+bot = telebot.AsyncTeleBot("1954954292:AAFM1QUBz0IQ6f_UysxCU1K_Qgz1iNcAcMY")
 bot.threaded = True
 
 POSITIVE_OPTION = "agree"
@@ -164,6 +164,10 @@ def pochemy_handler(message):
 @bot.message_handler(commands=['pasta'])
 def pasta_handler(message):
     username, chat_id = get_params_from_message(message)
+    member = check_member(username, chat_id)
+    if member.credit < 0:
+        bot.reply_to(message, "Not enough credit, {}".format(username))
+        return
     paste = random.choices(pastes, weights=list(map(lambda x: x.weight, pastes)), k=1)[0]
     bot.send_message(chat_id, paste.format(username=username))
 
