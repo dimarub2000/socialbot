@@ -9,7 +9,7 @@ from database import db
 from database import User, Transaction
 from pastes import pastes
 
-bot = telebot.AsyncTeleBot("1954954292:AAFM1QUBz0IQ6f_UysxCU1K_Qgz1iNcAcMY")
+bot = telebot.AsyncTeleBot(os.environ['BOT_TOKEN'])
 bot.threaded = True
 
 POSITIVE_OPTION = "agree"
